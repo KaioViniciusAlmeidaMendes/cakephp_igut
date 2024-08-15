@@ -454,3 +454,67 @@ function getConsultas() {
         }
     })
 }
+
+function pegarformularioejogarnomodalConsultas(){
+    $.ajax({
+        method: "GET",
+        url: 'consultas/add/',
+        success: function (data){
+            $('#consultaModal').modal('toggle');
+            $('#consultaModalContent').html(data);
+        }
+    })
+}
+
+function adicionarConsultasNaTabela() {
+    var formData = $('#ConsultaAdForm').serialize()
+    $.ajax({
+        method: "POST",
+        url: 'consultas/add/',
+        data: formData,
+        success: function () {
+            $('#consultaModal').modal('toggle')
+            getConsultas()
+        }
+
+    })
+}
+function editarConsultas(id) {
+    $.ajax({
+        method: "POST",
+        url: 'consultas/edit/' + id,
+        success: function (data) {
+            $('#consultaModal').modal('toggle');
+            $("#consultaModalContent").html(data);
+            
+        },
+        
+    });
+}
+
+function salvarConsultas(id) {
+    var formDataEdit = $("#ConsultaAdForm").serialize()
+    console.log(formDataEdit);
+    $.ajax({
+        method: "PUT",
+        url: 'consultas/save/' + id,
+        data: formDataEdit,
+        success: function (data) {
+            $('#consultaModal').modal('toggle');
+            getConsultas()
+        },
+        error: function(error){
+            console.log(error)
+        }
+    })
+}
+
+function desmarcarConsultas(id){
+    $.ajax({
+        method:'PUT',
+        url: 'consultas/save/' + id,
+        success: function (response){
+            getConsultas()
+        }
+    })
+}

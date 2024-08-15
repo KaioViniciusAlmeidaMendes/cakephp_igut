@@ -16,8 +16,8 @@
             <td><?= $paciente ['Paciente']['nome']; ?></td>
             <td><?= $paciente['Paciente']['data_nascimento']; ?></td>
             <td>
-            <button type="button" class="btn btn-danger" data-bs-toggle="modal" onclick="excluirPacientes(<?= $paciente['Paciente']['id']; ?>)">Excluir</button>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" onclick="editarPacientes(<?= $paciente['Paciente']['id']; ?>)">Editar</button>
+                <button type="button" class="btn btn-danger" data-bs-toggle="modal" onclick="excluirPacientes(<?= $paciente['Paciente']['id']; ?>)">Excluir</button>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" onclick="editarPacientes(<?= $paciente['Paciente']['id']; ?>)">Editar</button>
             </td>
         </tr>
     <?php endforeach; ?>
