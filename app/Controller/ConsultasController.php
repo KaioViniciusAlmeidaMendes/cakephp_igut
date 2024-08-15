@@ -230,5 +230,8 @@ class ConsultasController extends AppController
         }
         return $this->redirect(array('action' => 'index'));
     }
+    // echo "<pre>";
+        // print_r($consultas);
+        // exit;
 }
 
